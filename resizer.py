@@ -8,13 +8,13 @@ target_width = 1280
 def resize():
     for item in items_inside_dir:
         if os.path.isfile(item):
-            im = Image.open(item)
+            im = Image.open(item).convert('RGB')
             f, e = os.path.splitext(item)
 
             # target_width * original_height / original_width
             new_height = int(target_width * im.size[1] / float(im.size[0]))
             imResize = im.resize((target_width,new_height), Image.LANCZOS)
 
-            imResize.save(f + '_alt.png', 'PNG', quality=100)
+            imResize.save(f + '_alt.jpg', 'JPEG', quality=95)
             os.remove(item)
 resize()
