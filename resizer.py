@@ -2,7 +2,7 @@ from PIL import Image
 import os, sys
 
 cwd = os.getcwd()
-items_inside_dir = [os.path.join(cwd, f) for f in os.listdir(cwd) if (f.endswith(".jpg") or f.endswith(".png"))]
+items_inside_dir = [os.path.join(cwd, f) for f in os.listdir(cwd) if (f.endswith(".jpg") or f.endswith(".png") or f.endswith(".webp"))]
 target_width = 1280
 
 def resize():
@@ -18,3 +18,4 @@ def resize():
             imResize.save(f + '_alt.jpg', 'JPEG', quality=95)
             os.remove(item)
 resize()
+
