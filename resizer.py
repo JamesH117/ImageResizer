@@ -15,7 +15,8 @@ def resize():
             new_height = int(target_width * im.size[1] / float(im.size[0]))
             imResize = im.resize((target_width,new_height), Image.LANCZOS)
 
-            imResize.save(f + '_alt.jpg', 'JPEG', quality=95)
+            imResize.save(f + '_alt.jpg', 'JPEG', optimize=True, quality=85)
             os.remove(item)
 resize()
+
 
